@@ -4,8 +4,8 @@ from typing import Any, List, Optional, Tuple
 import pytest
 from mistql import query
 
-with open("shared/testdata.json", "rb") as f:
-    testdata = json.load(f)
+with open("shared/testcases.json", "rb") as f:
+    testcases = json.load(f)
 
 
 Case = Tuple[List[Tuple[str, Any, Any]], str, str, str, Optional[str]]
@@ -16,7 +16,7 @@ skipped_cases: List[Case] = []
 SELF_LANG_ID = "py"
 
 
-for block in testdata["data"]:
+for block in testcases["data"]:
     for innerblock in block["cases"]:
         for test in innerblock["cases"]:
             if SELF_LANG_ID in test.get("skip", []):

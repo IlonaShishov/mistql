@@ -1,12 +1,12 @@
 import assert from 'assert';
 import { query } from '.';
-import testdata from './shared/testdata.json';
+import testcases from './shared/testcases.json';
 
 
 const SELF_LANG_NAME = "js";
 
 describe("Shared tests", () => {
-  testdata.data.forEach((block) => {
+  testcases.data.forEach((block) => {
     describe(block.describe, () => {
       block.cases.forEach((innerblock) => {
         describe(innerblock.describe, () => {
