@@ -16,7 +16,7 @@ import float from "./float";
 import fromentries from "./fromentries";
 import groupby from "./groupby";
 import indexFn, {indexInner} from "./indexFn";
-import join from "./join";
+import concat from "./concat";
 import keys from "./keys";
 import log from "./log";
 import map from "./map";
@@ -109,8 +109,8 @@ export default {
   groupby,
   if: ifFunction,
   index: indexFn,
-  join,
-  stringjoin: join,
+  concat,
+  stringconcat: concat,
   keys,
   log,
   match,

@@ -641,7 +641,7 @@
               "it": "treats context variables like a stack rather than an overwrite",
               "assertions": [
                 {
-                  "query": "foo | apply [bar, @.zap, bleep] | stringjoin \" \"",
+                  "query": "foo | apply [bar, @.zap, bleep] | stringconcat \" \"",
                   "data": {
                     "foo": {
                       "bar": "baz",
@@ -3758,23 +3758,23 @@
           ]
         },
         {
-          "describe": "#stringjoin",
+          "describe": "#stringconcat",
           "cases": [
             {
-              "it": "joins basic strings",
+              "it": "concatenates basic strings",
               "assertions": [
                 {
-                  "query": "stringjoin \"\" @",
+                  "query": "stringconcat \"\" @",
                   "data": ["a", "b", "c"],
                   "expected": "abc"
                 }
               ]
             },
             {
-              "it": "joins with a delimiter",
+              "it": "concatenates with a delimiter",
               "assertions": [
                 {
-                  "query": "stringjoin \" \" @",
+                  "query": "stringconcat \" \" @",
                   "data": ["a", "b", "c"],
                   "expected": "a b c"
                 }
@@ -3784,7 +3784,7 @@
               "it": "round-trips with split",
               "assertions": [
                 {
-                  "query": "(split \":\" @ | stringjoin \":\") == @",
+                  "query": "(split \":\" @ | stringconcat \":\") == @",
                   "data": "hello:hi:cattt:",
                   "expected": true
                 }

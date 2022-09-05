@@ -521,8 +521,8 @@ def split(arguments: Args, stack: Stack, exec: Exec) -> RuntimeValue:
     )
 
 
-@builtin("stringjoin", 2)
-def stringjoin(arguments: Args, stack: Stack, exec: Exec) -> RuntimeValue:
+@builtin("stringconcat", 2)
+def stringconcat(arguments: Args, stack: Stack, exec: Exec) -> RuntimeValue:
     delimiter = assert_type(exec(arguments[0], stack), RVT.String)
     target = assert_type(exec(arguments[1], stack), RVT.Array)
     arr = [entry.to_string() for entry in target.value]
